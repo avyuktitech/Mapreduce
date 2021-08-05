@@ -1,0 +1,13 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "itversity/centos7spark"
+  config.vm.network "forwarded_port", guest: 8888, host: 8888
+  config.vm.network "forwarded_port", guest: 4040, host: 4040
+
+  config.vm.provider "virtualbox" do |vb|
+    vb.cpus = "2"
+    vb.memory = "4096"
+  end
+end
